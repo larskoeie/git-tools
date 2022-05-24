@@ -1,6 +1,11 @@
 #!/usr/bin/php
 
 <?php
+
+// used like this : git status |git-whenchanged
+// or alias.whenchanged=!git status |git-whenchanged
+
+
 $input_data = stream_get_contents(STDIN);
 
 $lines = explode("\n", $input_data);
