@@ -1,0 +1,24 @@
+#!/usr/bin/php
+
+<?php
+$input_data = stream_get_contents(STDIN);
+
+$lines = explode("\n", $input_data);
+
+foreach ($lines as $line) {
+        if (substr($line, 0, 1) == "\t") {
+                if (preg_match(';   ([^ ]+)$;', $line, $m)) {
+                        $path = trim($m[1]);
+                        $filemtime = filemtime($path);
+$line = "\t" . strftime('%Y-%m-%d', $filemtime) . " : " . $line;
+                } 
+        }
+
+        echo $line . "\n";
+}
+
+
+
+
+
+
